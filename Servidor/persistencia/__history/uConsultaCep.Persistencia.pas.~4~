@@ -1,0 +1,48 @@
+unit uConsultaCep.Persistencia;
+
+interface
+
+uses
+  FireDAC.Comp.Client, System.JSON;
+
+type
+  TCepRepository = class
+  private
+    FConnection: TFDConnection;
+  public
+    constructor Create(pAConnection: TFDConnection);
+    procedure SaveCepInfo(const pCepData: TJSONObject);
+  end;
+
+implementation
+
+constructor TCepRepository.Create(AConnection: TFDConnection);
+begin
+  FConnection := AConnection;
+end;
+
+procedure TCepRepository.SaveCepInfo(const ACepData: TJSONObject);
+var
+  Query: TFDQuery;
+begin
+  Query := TFDQuery.Create(nil);
+  try
+    Query.Connection := FConnection;
+    Query.SQL.Text := 'INSERT INTO cep_info (cep, logradouro, complemento, bairro, localidade, uf, ibge, gia, ddd, siafi) ' +
+                      'VALUES (:cep, :logradouro, :complemento, :bairro, :localidade, :uf, :ibge, :gia, :ddd, :siafi)';
+    Query.ParamByName('cep').AsString         := ACepData.GetValue('cep').Value;
+    Query.ParamByName('logradouro').AsString  := ACepData.GetValue('logradouro').Value;
+    Query.ParamByName('complemento').AsString := ACepData.GetValue('complemento').Value;
+    Query.ParamByName('bairro').AsString      := ACepData.GetValue('bairro').Value;
+    Query.ParamByName('localidade').AsString  := ACepData.GetValue('localidade').Value;
+    Query.ParamByName('uf').AsString          := ACepData.GetValue('uf').Value;
+    Query.ParamByName('ibge').AsString        := ACepData.GetValue('ibge').Value;
+    Query.ParamByName('gia').AsString         := ACepData.GetValue('gia').Value;
+    Query.ParamByName('ddd').AsString         := ACepData.GetValue('ddd').Value;
+    Query.ParamByName('siafi').AsString       := ACepData.GetValue('siafi').Value;
+    Query.ExecSQL;
+  finally
+    Query.Free;
+  end;
+end;
+end.

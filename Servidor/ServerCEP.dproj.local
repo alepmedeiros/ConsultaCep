@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/02/01 22:14:37.000.410,=C:\Users\Eduardo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/09/20 11:04:47.000.870,D:\Eduardo\TesteDelphi\ServerCEP.dproj=C:\Users\Eduardo\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2024/09/20 11:04:54.000.776,=D:\Eduardo\TesteDelphi\Unit1.pas</Transaction>
+    <Transaction>2024/09/20 11:05:34.000.010,D:\Eduardo\TesteDelphi\model\uConsultaCep.Interfaces.pas=D:\Eduardo\TesteDelphi\Unit1.pas</Transaction>
+    <Transaction>2024/09/20 11:06:32.000.385,=D:\Eduardo\TesteDelphi\Unit1.pas</Transaction>
+    <Transaction>2024/09/20 11:06:48.000.604,D:\Eduardo\TesteDelphi\model\uConsultaCep.pas=D:\Eduardo\TesteDelphi\Unit1.pas</Transaction>
+    <Transaction>2024/09/20 11:42:30.000.009,=D:\Eduardo\TesteDelphi\Unit1.pas</Transaction>
+    <Transaction>2024/09/20 11:42:46.000.275,D:\Eduardo\TesteDelphi\model\uConsultaCep.FallBackpas.pas=D:\Eduardo\TesteDelphi\Unit1.pas</Transaction>
+    <Transaction>2024/09/20 11:42:57.000.260,D:\Eduardo\TesteDelphi\model\uConsultaCep.FallBack.pas=D:\Eduardo\TesteDelphi\model\uConsultaCep.FallBackpas.pas</Transaction>
+  </Transactions>
+</BorlandProject>

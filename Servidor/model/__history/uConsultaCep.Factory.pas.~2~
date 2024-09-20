@@ -1,0 +1,18 @@
+unit uConsultaCep.Factory;
+
+interface
+
+uses
+  ICepService;
+
+type
+  TCepServiceFactory = class
+  public
+    class function CreatePrimaryService: ICepService;
+    class function CreateSecondaryService: ICepService;
+    class function CreateTertiaryService: ICepService;
+  end;
+
+implementation
+
+end.

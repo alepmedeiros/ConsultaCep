@@ -1,0 +1,47 @@
+unit uConsultaCep.FallBack;
+
+interface
+
+uses
+  System.JSON, uConsultaCep.Interfaces;
+
+type
+  TCepService = class(TInterfacedObject, ICepService)
+  private
+    FPrimaryService: ICepService;
+    FSecondaryService: ICepService;
+    FTertiaryService: ICepService;
+  public
+    constructor Create(APrimary, ASecondary, ATertiary: ICepService);
+    function GetViaCepInfo(const pCEP: string): TJSONObject;
+    function GetAPICEP(const pCEP: string):TJSONObject;
+    function GetAwesomeAPI(const pCEP: string): TJSONObject;
+  end;
+
+implementation
+
+constructor TCepService.Create(APrimary, ASecondary, ATertiary: ICepService);
+begin
+  FPrimaryService := APrimary;
+  FSecondaryService := ASecondary;
+  FTertiaryService := ATertiary;
+end;
+
+function TCepService.GetCepInfo(const ACEP: string): TJSONObject;
+begin
+  try
+    Result := FPrimaryService.GetCepInfo(ACEP);
+  except
+    try
+      Result := FSecondaryService.GetCepInfo(ACEP);
+    except
+      try
+        Result := FTertiaryService.GetCepInfo(ACEP);
+      except
+        raise Exception.Create('Erro: não foi possível consultar nenhum serviço de CEP.');
+      end;
+    end;
+  end;
+end;
+
+end.

@@ -1,0 +1,20 @@
+unit uConsultaCep.Interfaces;
+
+interface
+
+uses
+  System.JSON;
+
+type
+  iCepService = interface
+    ['{F8E39E9B-D349-49F2-9291-CEB8B5B31C90}']
+    function GetViaCepInfo(const pCEP: string): TJSONObject;
+    function GetAPICEP(const pCEP: string):TJSONObject;
+    function GetAwesomeAPI(CEP: string): TJSONObject;
+
+  end;
+
+
+implementation
+
+end.
